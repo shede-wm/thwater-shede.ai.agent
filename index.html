@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>山东泰和科技股份有限公司 - 2026年奖补项目申报清单</title>
+    <style>
+        :root {
+            --primary: #1a3a5c;
+            --primary-light: #2d5f8a;
+            --accent: #e8943a;
+            --accent-light: #f5b971;
+            --bg: #f4f6f9;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+            --text-light: #6c7a89;
+            --border: #dce3ec;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --info: #3498db;
+            --danger: #e74c3c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* ===== Header (Sticky) ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .header h1 span {
+            color: var(--accent-light);
+            font-weight: 400;
+            font-size: 16px;
+            margin-left: 12px;
+        }
+        .header-meta {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* ===== Navigation ===== */
+        .nav {
+            background: var(--primary);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .nav-inner::-webkit-scrollbar { display: none; }
+        .nav a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            padding: 14px 22px;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            flex-shrink: 0;
+        }
+        .nav a:hover, .nav a.active {
+            color: white;
+            background: rgba(255,255,255,0.05);
+            border-bottom-color: var(--accent);
+        }
+
+        /* ===== Container ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 40px 60px;
+        }
+
+        /* ===== Section ===== */
+        .section {
+            margin-bottom: 40px;
+            scroll-margin-top: 120px;
+        }
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title .icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        /* ===== Card ===== */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            font-size: 17px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .card p {
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        /* ===== Info Grid ===== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 22px 26px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+        }
+        .info-item .label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        .info-item .value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* ===== Badge ===== */
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .badge-national { background: linear-gradient(135deg, #e74c3c22, #e74c3c11); color: #c0392b; border: 1px solid #e74c3c44; }
+        .badge-province { background: linear-gradient(135deg, #3498db22, #3498db11); color: #2471a3; border: 1px solid #3498db44; }
+        .badge-city { background: linear-gradient(135deg, #27ae6022, #27ae6011); color: #1e8449; border: 1px solid #27ae6044; }
+        .badge-other { background: linear-gradient(135deg, #8e44ad22, #8e44ad11); color: #6c3483; border: 1px solid #8e44ad44; }
+
+        /* ===== Business Cards Grid ===== */
+        .biz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+        .biz-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .biz-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+        .biz-card .biz-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; margin-bottom: 14px;
+        }
+        .biz-card h4 { font-size: 16px; color: var(--primary); margin-bottom: 8px; }
+        .biz-card p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+        /* ===== Desktop Table ===== */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            background: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 1600px;
+        }
+        thead th {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        tbody tr:hover { background: #f0f5ff; }
+        tbody tr:last-child td { border-bottom: none; }
+        .level-tag {
+            display: inline-block; padding: 3px 10px; border-radius: 12px;
+            font-size: 12px; font-weight: 600; white-space: nowrap;
+        }
+        .level-national { background: #fde8e8; color: #c0392b; }
+        .level-province { background: #e8f0fe; color: #2471a3; }
+        .level-city { background: #e8f8e8; color: #1e8449; }
+        .level-district { background: #f3e8fd; color: #6c3483; }
+        .amount { font-weight: 700; color: var(--accent); font-size: 15px; }
+        .category-tag {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 11px; font-weight: 500; background: #f0f0f0; color: #555;
+        }
+
+        /* ===== Honor Tag (荣誉类项目标签) ===== */
+        .honor-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #f0e6ff, #e8daff);
+            color: #6c3483;
+            border: 1px solid #d4b8e8;
+            white-space: nowrap;
+        }
+
+        /* ===== Tech Tags ===== */
+        .tech-tag {
+            display: inline-block; padding: 2px 7px; border-radius: 4px;
+            font-size: 11px; font-weight: 500; background: #e8f4fd; color: #2471a3;
+            margin: 1px 2px; white-space: nowrap;
+        }
+        .tech-tag.ai { background: #fde8f4; color: #c0392b; }
+        .tech-tag.hw { background: #e8fde8; color: #1e8449; }
+        .tech-tag.sw { background: #f3e8fd; color: #6c3483; }
+
+        /* ===== Mobile Card View (hidden on desktop) ===== */
+        .mobile-cards { display: none; }
+
+        .m-project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .m-project-card .m-card-header {
+            padding: 16px 18px 12px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .m-project-card .m-card-header .m-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            flex: 1;
+        }
+        .m-project-card .m-card-header .m-seq {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: var(--accent);
+            color: white; font-size: 13px; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .m-project-card .m-card-body { padding: 4px 18px 16px; }
+        .m-field {
+            display: flex;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .m-field:last-child { border-bottom: none; }
+        .m-field .m-label {
+            min-width: 80px;
+            max-width: 80px;
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 600;
+            padding-top: 2px;
+            flex-shrink: 0;
+        }
+        .m-field .m-value {
+            flex: 1;
+            color: var(--text);
+            word-break: break-word;
+        }
+        .m-field .m-value.amount {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        /* ===== Stats Bar ===== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+        .stat-card .stat-num {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-card .stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* ===== Filter Buttons ===== */
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: white;
+            color: var(--text);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* ===== Timeline ===== */
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before {
+            content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
+            width: 3px; background: linear-gradient(to bottom, var(--accent), var(--primary));
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative; margin-bottom: 24px; padding: 18px 24px;
+            background: var(--card-bg); border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--border);
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -26px; top: 24px;
+            width: 14px; height: 14px; background: var(--accent);
+            border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--accent);
+        }
+        .timeline-item .year { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+        .timeline-item h4 { font-size: 15px; color: var(--primary); margin-bottom: 6px; }
+        .timeline-item p { font-size: 13px; color: var(--text-light); }
+        .status-done { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; background: #27ae6022; color: #27ae60; font-weight: 600; }
+        .status-progress { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; background: #f39c1222; color: #f39c12; font-weight: 600; }
+
+        /* ===== Policy Links ===== */
+        .policy-ref a {
+            color: var(--info); text-decoration: none; border-bottom: 1px dashed var(--info);
+            font-size: 13px; transition: all 0.2s; word-break: break-all;
+        }
+        .policy-ref a:hover { color: var(--primary); border-bottom-style: solid; }
+        .policy-card a {
+            color: var(--info); text-decoration: none; border-bottom: 1px dashed var(--info); transition: all 0.2s;
+        }
+        .policy-card a:hover { color: var(--primary); border-bottom-style: solid; }
+        .ext-icon { display: inline-block; font-size: 10px; margin-left: 2px; opacity: 0.6; }
+
+        /* ===== Roadmap ===== */
+        .roadmap { margin-top: 24px; }
+        .roadmap-quarter {
+            display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start;
+        }
+        .roadmap-label {
+            min-width: 72px; font-size: 14px; font-weight: 700; color: var(--primary);
+            padding-top: 6px; text-align: center; background: white; border-radius: 8px;
+            padding: 8px 4px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .roadmap-items { flex: 1; display: flex; flex-wrap: wrap; gap: 8px; }
+        .roadmap-item {
+            padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 500;
+            border: 1px solid; line-height: 1.5; max-width: 280px;
+        }
+        .roadmap-item.national { background: #fde8e811; border-color: #e74c3c44; color: #c0392b; }
+        .roadmap-item.province { background: #e8f0fe11; border-color: #3498db44; color: #2471a3; }
+        .roadmap-item.city { background: #e8f8e811; border-color: #27ae6044; color: #1e8449; }
+        .roadmap-item.district { background: #f3e8fd11; border-color: #8e44ad44; color: #6c3483; }
+
+        /* ===== Unit Summary ===== */
+        .unit-summary {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px; margin-top: 20px;
+        }
+        .unit-card {
+            background: white; border-radius: 10px; padding: 18px 20px;
+            border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .unit-card .unit-name { font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .unit-card .unit-count {
+            font-size: 24px; font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .unit-card .unit-desc { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+
+        /* ===== Lifecycle Bar ===== */
+        .lifecycle-bar {
+            margin-top: 20px; padding: 20px 24px; background: #f8f9fc;
+            border-radius: 10px; border: 1px solid var(--border);
+        }
+        .lifecycle-bar h4 { font-size: 14px; color: var(--primary); margin-bottom: 16px; font-weight: 600; }
+        .lifecycle-steps { display: flex; gap: 0; position: relative; }
+        .lifecycle-step { flex: 1; text-align: center; position: relative; padding: 0 4px; }
+        .lifecycle-step .bar { height: 8px; border-radius: 4px; margin-bottom: 10px; }
+        .lifecycle-step:nth-child(1) .bar { background: #3498db; }
+        .lifecycle-step:nth-child(2) .bar { background: #9b59b6; }
+        .lifecycle-step:nth-child(3) .bar { background: #27ae60; }
+        .lifecycle-step:nth-child(4) .bar { background: #e74c3c; }
+        .lifecycle-step .step-label { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+        .lifecycle-step .step-pct {
+            font-size: 18px; font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        /* ===== Contact Bar ===== */
+        .contact-bar {
+            margin-top: 20px; padding: 16px 28px; background: white;
+            border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border); display: flex;
+            align-items: center; gap: 28px; flex-wrap: wrap;
+        }
+        .contact-bar-title {
+            font-size: 14px; font-weight: 700; color: var(--primary);
+            white-space: nowrap; padding-right: 12px; border-right: 2px solid var(--border);
+        }
+        .contact-bar-name { font-size: 18px; font-weight: 800; color: var(--primary); letter-spacing: 1px; }
+        .contact-bar-info { font-size: 13px; color: var(--text); }
+        .contact-bar-info .cb-label { color: var(--text-light); margin-right: 4px; }
+        .contact-bar-info a { color: var(--primary); text-decoration: none; font-weight: 700; font-size: 15px; }
+        .contact-bar-info a:hover { color: var(--accent); }
+        .contact-bar-sep { width: 1px; height: 28px; background: var(--border); }
+
+        /* ===== Collapse Sections ===== */
+        .collapse-group {
+            margin-top: 48px; padding-top: 32px; border-top: 2px dashed var(--border);
+        }
+        .collapse-group-title {
+            font-size: 16px; font-weight: 600; color: var(--text-light);
+            margin-bottom: 16px; text-align: center; letter-spacing: 2px;
+        }
+        .collapse-section {
+            margin-bottom: 12px; border-radius: 12px; overflow: hidden;
+            background: var(--card-bg); box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+        .collapse-section summary {
+            padding: 18px 28px; cursor: pointer; font-size: 16px; font-weight: 600;
+            color: var(--primary); display: flex; align-items: center; gap: 12px;
+            list-style: none; border-left: 4px solid var(--accent); transition: background 0.2s;
+        }
+        .collapse-section summary::-webkit-details-marker { display: none; }
+        .collapse-section summary:hover { background: #f8f9fc; }
+        .collapse-section summary::before {
+            content: '\25B6'; font-size: 12px; color: var(--accent);
+            transition: transform 0.3s; flex-shrink: 0;
+        }
+        .collapse-section[open] summary::before { transform: rotate(90deg); }
+        .collapse-section[open] summary { border-bottom: 1px solid var(--border); background: #f8f9fc; }
+        .collapse-section .collapse-body { padding: 24px 28px; animation: fadeSlideIn 0.3s ease; }
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--primary); color: rgba(255,255,255,0.7);
+            text-align: center; padding: 24px; font-size: 13px;
+        }
+
+        /* ===== Print ===== */
+        @media print {
+            .header, .nav, .filter-bar { position: static; }
+            .section { page-break-inside: avoid; }
+            .collapse-section { break-inside: avoid; }
+            .mobile-cards { display: none !important; }
+        }
+
+        /* ================================================================
+           RESPONSIVE BREAKPOINTS
+           ================================================================ */
+
+        /* ===== Tablet & Small Desktop (≤1024px) ===== */
+        @media (max-width: 1024px) {
+            .container { padding: 20px 20px 48px; }
+            .header-inner { padding: 16px 20px; flex-direction: column; gap: 6px; align-items: flex-start; }
+            .header h1 { font-size: 20px; }
+            .header h1 span { display: block; margin-left: 0; margin-top: 4px; font-size: 14px; }
+            .header-meta { font-size: 12px; }
+            .nav-inner { padding: 0 12px; }
+            .nav a { padding: 12px 16px; font-size: 13px; }
+
+            /* Hide desktop table, show mobile cards */
+            .table-wrapper { display: none; }
+            .mobile-cards { display: block; }
+
+            .section-title { font-size: 18px; }
+            .section-title .icon { width: 28px; height: 28px; font-size: 14px; }
+
+            .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .stat-card { padding: 18px; }
+            .stat-card .stat-num { font-size: 28px; }
+
+            .roadmap-quarter { flex-direction: column; gap: 8px; }
+            .roadmap-label {
+                min-width: auto; text-align: left; padding: 8px 14px;
+                display: flex; gap: 8px; align-items: center;
+            }
+            .roadmap-item { max-width: 100%; }
+
+            .unit-summary { grid-template-columns: repeat(2, 1fr); }
+
+            .card { padding: 20px 22px; }
+            .collapse-section summary { padding: 16px 20px; font-size: 15px; }
+            .collapse-section .collapse-body { padding: 20px; }
+            .timeline { padding-left: 24px; }
+            .timeline-item { padding: 14px 18px; }
+        }
+
+        /* ===== Mobile (≤768px) ===== */
+        @media (max-width: 768px) {
+            .container { padding: 16px 12px 40px; }
+            .header-inner { padding: 14px 16px; }
+            .header h1 { font-size: 18px; }
+            .header h1 span { font-size: 13px; }
+            .nav-inner { padding: 0 8px; }
+            .nav a { padding: 10px 14px; font-size: 12px; }
+
+            .section { margin-bottom: 28px; }
+            .section-title { font-size: 17px; margin-bottom: 16px; padding-bottom: 10px; }
+
+            .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+            .stat-card { padding: 14px 10px; }
+            .stat-card .stat-num { font-size: 24px; }
+            .stat-card .stat-label { font-size: 11px; }
+
+            .filter-bar { gap: 6px; margin-bottom: 16px; }
+            .filter-btn { padding: 6px 14px; font-size: 12px; min-height: 40px; }
+
+            .m-project-card { margin-bottom: 14px; }
+            .m-project-card .m-card-header { padding: 14px 14px 10px; }
+            .m-project-card .m-card-header .m-title { font-size: 14px; }
+            .m-project-card .m-card-body { padding: 2px 14px 14px; }
+            .m-field { padding: 8px 0; font-size: 13px; }
+            .m-field .m-label { min-width: 70px; max-width: 70px; font-size: 11px; }
+
+            .roadmap-quarter { margin-bottom: 10px; }
+            .roadmap-items { gap: 6px; }
+            .roadmap-item { font-size: 11px; padding: 6px 10px; }
+
+            .unit-summary { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .unit-card { padding: 14px 16px; }
+            .unit-card .unit-count { font-size: 20px; }
+            .unit-card .unit-name { font-size: 12px; }
+            .unit-card .unit-desc { font-size: 11px; }
+
+            .card { padding: 18px 16px; border-radius: 10px; }
+            .card h3 { font-size: 15px; margin-bottom: 10px; }
+            .card p { font-size: 14px; line-height: 1.75; }
+
+            .contact-bar {
+                flex-direction: column; align-items: flex-start;
+                gap: 10px; padding: 14px 18px;
+            }
+            .contact-bar-sep { display: none; }
+            .contact-bar-name { font-size: 16px; }
+
+            .lifecycle-bar { padding: 16px 14px; }
+            .lifecycle-step .step-label { font-size: 11px; }
+            .lifecycle-step .step-pct { font-size: 15px; }
+
+            .info-grid { grid-template-columns: 1fr; gap: 12px; }
+            .info-item { padding: 16px 18px; }
+            .info-item .value { font-size: 14px; }
+
+            .biz-grid { grid-template-columns: 1fr; gap: 12px; }
+
+            .badge-group { gap: 6px; }
+            .badge { padding: 6px 12px; font-size: 12px; }
+
+            .collapse-section summary { padding: 14px 16px; font-size: 14px; }
+            .collapse-section .collapse-body { padding: 16px; }
+
+            .timeline { padding-left: 20px; }
+            .timeline::before { left: 6px; }
+            .timeline-item { padding: 12px 16px; margin-bottom: 16px; }
+            .timeline-item::before { left: -20px; width: 12px; height: 12px; top: 20px; }
+
+            .footer { padding: 18px 12px; font-size: 12px; }
+        }
+
+        /* ===== Small Mobile (≤480px) ===== */
+        @media (max-width: 480px) {
+            .container { padding: 12px 8px 32px; }
+            .header-inner { padding: 12px 12px; }
+            .header h1 { font-size: 16px; }
+            .header h1 span { font-size: 12px; }
+            .header-meta { font-size: 11px; }
+            .nav a { padding: 10px 12px; font-size: 11px; }
+
+            .section-title { font-size: 15px; gap: 8px; }
+            .section-title .icon { width: 24px; height: 24px; font-size: 12px; border-radius: 6px; }
+
+            .stats-bar { gap: 8px; margin-bottom: 16px; }
+            .stat-card { padding: 12px 8px; }
+            .stat-card .stat-num { font-size: 20px; }
+            .stat-card .stat-label { font-size: 10px; }
+
+            .filter-btn { padding: 5px 10px; font-size: 11px; min-height: 36px; }
+
+            .m-project-card .m-card-header { padding: 12px 12px 8px; }
+            .m-project-card .m-card-header .m-title { font-size: 13px; }
+            .m-project-card .m-card-body { padding: 0 12px 12px; }
+            .m-field { padding: 7px 0; font-size: 12px; }
+            .m-field .m-label { min-width: 62px; max-width: 62px; font-size: 10px; }
+            .m-field .m-value.amount { font-size: 14px; }
+
+            .roadmap-label { padding: 6px 10px; font-size: 12px; }
+            .roadmap-item { font-size: 10px; padding: 5px 8px; }
+
+            .unit-summary { grid-template-columns: 1fr; }
+
+            .card { padding: 14px 12px; }
+            .card h3 { font-size: 14px; }
+            .card p { font-size: 13px; }
+
+            .lifecycle-step .step-label { font-size: 10px; }
+            .lifecycle-step .step-pct { font-size: 14px; }
+
+            .contact-bar { padding: 12px 14px; }
+            .contact-bar-title { font-size: 13px; }
+            .contact-bar-name { font-size: 15px; }
+            .contact-bar-info { font-size: 12px; }
+
+            .info-item { padding: 14px 14px; }
+            .info-item .label { font-size: 10px; }
+            .info-item .value { font-size: 13px; }
+
+            .badge { padding: 5px 10px; font-size: 11px; }
+            .badge-group { gap: 5px; }
+
+            .collapse-section summary { padding: 12px 14px; font-size: 13px; gap: 8px; }
+            .collapse-section .collapse-body { padding: 14px 12px; }
+
+            .timeline { padding-left: 16px; }
+            .timeline-item { padding: 10px 12px; }
+            .timeline-item .year { font-size: 12px; }
+            .timeline-item h4 { font-size: 13px; }
+            .timeline-item p { font-size: 12px; }
+
+            .footer { font-size: 11px; padding: 16px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-inner">
+        <h1>山东泰和科技股份有限公司 <span>2026年度奖补项目申报清单</span></h1>
+        <div class="header-meta">编制日期：2026-08-18</div>
+    </div>
+    <div class="nav">
+        <div class="nav-inner">
+            <a href="#projects" class="active">可申报项目清单</a>
+            <a href="#policy">政策依据汇总</a>
+            <a href="#tips">重要提示</a>
+            <a href="#company">企业详情 &#9660;</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="section" id="projects">
+        <div class="section-title">
+            <div class="icon">1</div>
+            2026年可申报奖补项目清单
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">可申报项目总数</div></div>
+            <div class="stat-card"><div class="stat-num">~900</div><div class="stat-label">预计奖补总额（万元，荣誉类不计）</div></div>
+            <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">国家级项目</div></div>
+            <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">省级项目</div></div>
+        </div>
+
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterTable('all')">全部</button>
+            <button class="filter-btn" onclick="filterTable('national')">国家级</button>
+            <button class="filter-btn" onclick="filterTable('province')">省级</button>
+        </div>
+
+        <div class="table-wrapper">
+            <table id="projectTable">
+                <thead>
+                    <tr>
+                        <th style="width:40px">序号</th>
+                        <th style="min-width:180px">可申报项目名称</th>
+                        <th style="min-width:100px">项目类别</th>
+                        <th style="min-width:110px">归口部门</th>
+                        <th style="min-width:80px">申报层级</th>
+                        <th style="min-width:80px">申报周期</th>
+                        <th style="min-width:100px">预计奖补金额（万元）</th>
+                        <th style="min-width:120px">关键技术方向</th>
+                        <th style="min-width:220px">申报核心条件</th>
+                        <th style="min-width:200px">所需材料</th>
+                        <th style="min-width:200px">政策依据（官方文件）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-level="national">
+                        <td data-label="序号">1</td>
+                        <td data-label="项目名称"><strong>超长期特别国债（两新・工业设备更新改造）</strong></td>
+                        <td data-label="项目类别"><span class="category-tag">设备更新/投资补助</span></td>
+                        <td data-label="归口部门">国家发展改革委、财政部</td>
+                        <td data-label="申报层级"><span class="level-tag level-national">国家级</span></td>
+                        <td data-label="申报周期">批次申报（1-2月、3-4月、6-7月）</td>
+                        <td data-label="预计奖补" class="amount">~500万<br><span style="font-size:11px;color:#888">上限约1亿元（按设备投资额测算）</span></td>
+                        <td data-label="技术方向"><span class="tech-tag hw">高端装备</span><span class="tech-tag ai">智能化/绿色化</span></td>
+                        <td data-label="核心条件">工业领域设备更新，重点支持高端化、智能化、绿色化设备应用；项目固定资产投资纳入国家重大建设项目库；锚定4.7亿元新能源系列产品项目及电子化学品产线设备投资（与省级设备更新奖补不重复享受同一设备）</td>
+                        <td data-label="所需材料">项目可行性研究报告、设备投资清单、备案/核准文件、环评/能评/安评手续、资金申请报告</td>
+                        <td data-label="政策依据" class="policy-ref"><a href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202501/t20250108_1395564.html" target="_blank" rel="noopener">发改环资〔2025〕13号<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    
+                    <tr data-level="national">
+                        <td data-label="序号">2</td>
+                        <td data-label="项目名称"><strong>国家级智能工厂（卓越级）</strong></td>
+                        <td data-label="项目类别"><span class="category-tag">智能制造认定</span></td>
+                        <td data-label="归口部门">工业和信息化部</td>
+                        <td data-label="申报层级"><span class="level-tag level-national">国家级</span></td>
+                        <td data-label="申报周期">年度推荐（卓越级约7月）</td>
+                        <td data-label="预计奖补" class="amount"><span class="honor-tag">荣誉类项目</span></td>
+                        <td data-label="技术方向"><span class="tech-tag ai">人工智能</span><span class="tech-tag sw">工业互联网</span><span class="tech-tag hw">智能装备</span></td>
+                        <td data-label="核心条件">已获评山东省先进智能工厂，须完成智能工厂建设并达到卓越级要素条件；开展人工智能技术应用探索，智能制造达到国内领先水平</td>
+                        <td data-label="所需材料">智能工厂申报书、自评估报告、现场核查准备、智能制造数据资源公共服务平台填报</td>
+                        <td data-label="政策依据" class="policy-ref"><a href="http://yuchengshi.gov.cn/n54813126/n54813170/n54813176/c94599515/content.html" target="_blank" rel="noopener">工信厅联通装函〔2025〕251号<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="national">
+                        <td data-label="序号">3</td>
+                        <td data-label="项目名称"><strong>国家级首台（套）重大技术装备</strong></td>
+                        <td data-label="项目类别"><span class="category-tag">首台套认定</span></td>
+                        <td data-label="归口部门">工业和信息化部</td>
+                        <td data-label="申报层级"><span class="level-tag level-national">国家级</span></td>
+                        <td data-label="申报周期">年度目录申报</td>
+                        <td data-label="预计奖补" class="amount"><span class="honor-tag">荣誉类项目</span></td>
+                        <td data-label="技术方向"><span class="tech-tag hw">高端装备</span><span class="tech-tag sw">控制系统</span></td>
+                        <td data-label="核心条件">已获2019年山东省首台（套）（水处理剂连续化、智能化生产系统）；新产品须纳入《首台（套）重大技术装备推广应用指导目录（2024年版）》</td>
+                        <td data-label="所需材料">首台套认定申请、产品技术鉴定、知识产权证明、第三方检测报告</td>
+                        <td data-label="政策依据" class="policy-ref"><a href="https://www.gov.cn/zhengce/zhengceku/202409/content_6974868.htm" target="_blank" rel="noopener">工信部重装函〔2024〕254号<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td data-label="序号">4</td>
+                        <td data-label="项目名称"><strong>山东省工业领域设备更新和技术改造奖补</strong></td>
+                        <td data-label="项目类别"><span class="category-tag">技改奖补</span></td>
+                        <td data-label="归口部门">山东省工业和信息化厅、山东省财政厅</td>
+                        <td data-label="申报层级"><span class="level-tag level-province">省级</span></td>
+                        <td data-label="申报周期">年度申报（2026年申报约6月）</td>
+                        <td data-label="预计奖补" class="amount">~200万<br><span style="font-size:11px;color:#888">最高500万</span></td>
+                        <td data-label="技术方向"><span class="tech-tag hw">高端装备</span><span class="tech-tag sw">数字化</span></td>
+                        <td data-label="核心条件">总投资5000万元以上且纳入投资统计库的技术改造项目；设备发票在申报期内取得；与超长期特别国债不重复享受同一设备</td>
+                        <td data-label="所需材料">资金申请报告、设备购置合同及增值税发票、银行流水、项目备案文件（鲁惠通平台申报）</td>
+                        <td data-label="政策依据" class="policy-ref"><a href="http://www.shandong.gov.cn/lht/#/product/detail?id=1856589810362241024" target="_blank" rel="noopener">鲁工信规〔2025〕76号（鲁财工〔2024〕10号）<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td data-label="序号">5</td>
+                        <td data-label="项目名称"><strong>山东省重点研发计划（重大科技创新工程）</strong></td>
+                        <td data-label="项目类别"><span class="category-tag">科技计划/研发补助</span></td>
+                        <td data-label="归口部门">山东省科学技术厅</td>
+                        <td data-label="申报层级"><span class="level-tag level-province">省级</span></td>
+                        <td data-label="申报周期">年度申报（指南约5月、6月初截止）</td>
+                        <td data-label="预计奖补" class="amount">~200万<br><span style="font-size:11px;color:#888">按指南定额/非定额</span></td>
+                        <td data-label="技术方向"><span class="tech-tag hw">新材料</span><span class="tech-tag sw">电子化学品</span><span class="tech-tag ai">新能源</span></td>
+                        <td data-label="核心条件">山东省内注册企业、研发能力较强；聚焦新材料/新能源/电子信息方向（电子化学品、电池材料）；企业自筹与申请经费不低于4:1</td>
+                        <td data-label="所需材料">项目申报书、预算申报书、联合申报协议、近两年财务审计报告、研发投入说明（山东省科技云平台）</td>
+                        <td data-label="政策依据" class="policy-ref"><a href="http://kjt.shandong.gov.cn/jsearchfront/visit/link.do?url=http%3A%2F%2Fkjt.shandong.gov.cn%2Fart%2F2025%2F5%2F12%2Fart_13360_10319278.html" target="_blank" rel="noopener">鲁科字〔2025〕83号 / 2025年度申报通知<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    
+                    
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mobile-cards" id="mobileCards">
+            <div class="m-project-card" data-level="national">
+                <div class="m-card-header">
+                    <div class="m-seq">1</div>
+                    <div class="m-title">超长期特别国债（两新・工业设备更新改造）</div>
+                    <span class="level-tag level-national">国家级</span>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-field"><div class="m-label">项目类别</div><div class="m-value"><span class="category-tag">设备更新/投资补助</span></div></div>
+                    <div class="m-field"><div class="m-label">归口部门</div><div class="m-value">国家发展改革委、财政部</div></div>
+                    <div class="m-field"><div class="m-label">申报周期</div><div class="m-value">批次申报（1-2月、3-4月、6-7月）</div></div>
+                    <div class="m-field"><div class="m-label">预计奖补</div><div class="m-value amount">~500万元</div></div>
+                    <div class="m-field"><div class="m-label">技术方向</div><div class="m-value"><span class="tech-tag hw">高端装备</span><span class="tech-tag ai">智能化/绿色化</span></div></div>
+                    <div class="m-field"><div class="m-label">核心条件</div><div class="m-value">工业领域设备更新，重点支持高端化、智能化、绿色化设备应用；项目固定资产投资纳入国家重大建设项目库；锚定4.7亿元新能源系列产品项目及电子化学品产线设备投资（与省级设备更新奖补不重复享受同一设备）</div></div>
+                    <div class="m-field"><div class="m-label">所需材料</div><div class="m-value">项目可行性研究报告、设备投资清单、备案/核准文件、环评/能评/安评手续、资金申请报告</div></div>
+                    <div class="m-field"><div class="m-label">政策依据</div><div class="m-value policy-ref"><a href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202501/t20250108_1395564.html" target="_blank" rel="noopener">发改环资〔2025〕13号<span class="ext-icon">&#8599;</span></a></div></div>
+                </div>
+            </div>
+            <div class="m-project-card" data-level="national">
+                <div class="m-card-header">
+                    <div class="m-seq">2</div>
+                    <div class="m-title">国家级智能工厂（卓越级）</div>
+                    <span class="level-tag level-national">国家级</span>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-field"><div class="m-label">项目类别</div><div class="m-value"><span class="category-tag">智能制造认定</span></div></div>
+                    <div class="m-field"><div class="m-label">归口部门</div><div class="m-value">工业和信息化部</div></div>
+                    <div class="m-field"><div class="m-label">申报周期</div><div class="m-value">年度推荐（卓越级约7月）</div></div>
+                    <div class="m-field"><div class="m-label">预计奖补</div><div class="m-value"><span class="honor-tag">荣誉类项目</span></div></div>
+                    <div class="m-field"><div class="m-label">技术方向</div><div class="m-value"><span class="tech-tag ai">人工智能</span><span class="tech-tag sw">工业互联网</span><span class="tech-tag hw">智能装备</span></div></div>
+                    <div class="m-field"><div class="m-label">核心条件</div><div class="m-value">已获评山东省先进智能工厂，须完成智能工厂建设并达到卓越级要素条件；开展人工智能技术应用探索，智能制造达到国内领先水平</div></div>
+                    <div class="m-field"><div class="m-label">所需材料</div><div class="m-value">智能工厂申报书、自评估报告、现场核查准备、智能制造数据资源公共服务平台填报</div></div>
+                    <div class="m-field"><div class="m-label">政策依据</div><div class="m-value policy-ref"><a href="http://yuchengshi.gov.cn/n54813126/n54813170/n54813176/c94599515/content.html" target="_blank" rel="noopener">工信厅联通装函〔2025〕251号<span class="ext-icon">&#8599;</span></a></div></div>
+                </div>
+            </div>
+            <div class="m-project-card" data-level="national">
+                <div class="m-card-header">
+                    <div class="m-seq">3</div>
+                    <div class="m-title">国家级首台（套）重大技术装备</div>
+                    <span class="level-tag level-national">国家级</span>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-field"><div class="m-label">项目类别</div><div class="m-value"><span class="category-tag">首台套认定</span></div></div>
+                    <div class="m-field"><div class="m-label">归口部门</div><div class="m-value">工业和信息化部</div></div>
+                    <div class="m-field"><div class="m-label">申报周期</div><div class="m-value">年度目录申报</div></div>
+                    <div class="m-field"><div class="m-label">预计奖补</div><div class="m-value"><span class="honor-tag">荣誉类项目</span></div></div>
+                    <div class="m-field"><div class="m-label">技术方向</div><div class="m-value"><span class="tech-tag hw">高端装备</span><span class="tech-tag sw">控制系统</span></div></div>
+                    <div class="m-field"><div class="m-label">核心条件</div><div class="m-value">已获2019年山东省首台（套）（水处理剂连续化、智能化生产系统）；新产品须纳入《首台（套）重大技术装备推广应用指导目录（2024年版）》</div></div>
+                    <div class="m-field"><div class="m-label">所需材料</div><div class="m-value">首台套认定申请、产品技术鉴定、知识产权证明、第三方检测报告</div></div>
+                    <div class="m-field"><div class="m-label">政策依据</div><div class="m-value policy-ref"><a href="https://www.gov.cn/zhengce/zhengceku/202409/content_6974868.htm" target="_blank" rel="noopener">工信部重装函〔2024〕254号<span class="ext-icon">&#8599;</span></a></div></div>
+                </div>
+            </div>
+            <div class="m-project-card" data-level="province">
+                <div class="m-card-header">
+                    <div class="m-seq">4</div>
+                    <div class="m-title">山东省工业领域设备更新和技术改造奖补</div>
+                    <span class="level-tag level-province">省级</span>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-field"><div class="m-label">项目类别</div><div class="m-value"><span class="category-tag">技改奖补</span></div></div>
+                    <div class="m-field"><div class="m-label">归口部门</div><div class="m-value">山东省工业和信息化厅、山东省财政厅</div></div>
+                    <div class="m-field"><div class="m-label">申报周期</div><div class="m-value">年度申报（2026年申报约6月）</div></div>
+                    <div class="m-field"><div class="m-label">预计奖补</div><div class="m-value amount">~200万元</div></div>
+                    <div class="m-field"><div class="m-label">技术方向</div><div class="m-value"><span class="tech-tag hw">高端装备</span><span class="tech-tag sw">数字化</span></div></div>
+                    <div class="m-field"><div class="m-label">核心条件</div><div class="m-value">总投资5000万元以上且纳入投资统计库的技术改造项目；设备发票在申报期内取得；与超长期特别国债不重复享受同一设备</div></div>
+                    <div class="m-field"><div class="m-label">所需材料</div><div class="m-value">资金申请报告、设备购置合同及增值税发票、银行流水、项目备案文件（鲁惠通平台申报）</div></div>
+                    <div class="m-field"><div class="m-label">政策依据</div><div class="m-value policy-ref"><a href="http://www.shandong.gov.cn/lht/#/product/detail?id=1856589810362241024" target="_blank" rel="noopener">鲁工信规〔2025〕76号（鲁财工〔2024〕10号）<span class="ext-icon">&#8599;</span></a></div></div>
+                </div>
+            </div>
+            <div class="m-project-card" data-level="province">
+                <div class="m-card-header">
+                    <div class="m-seq">5</div>
+                    <div class="m-title">山东省重点研发计划（重大科技创新工程）</div>
+                    <span class="level-tag level-province">省级</span>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-field"><div class="m-label">项目类别</div><div class="m-value"><span class="category-tag">科技计划/研发补助</span></div></div>
+                    <div class="m-field"><div class="m-label">归口部门</div><div class="m-value">山东省科学技术厅</div></div>
+                    <div class="m-field"><div class="m-label">申报周期</div><div class="m-value">年度申报（指南约5月、6月初截止）</div></div>
+                    <div class="m-field"><div class="m-label">预计奖补</div><div class="m-value amount">~200万元</div></div>
+                    <div class="m-field"><div class="m-label">技术方向</div><div class="m-value"><span class="tech-tag hw">新材料</span><span class="tech-tag sw">电子化学品</span><span class="tech-tag ai">新能源</span></div></div>
+                    <div class="m-field"><div class="m-label">核心条件</div><div class="m-value">山东省内注册企业、研发能力较强；聚焦新材料/新能源/电子信息方向（电子化学品、电池材料）；企业自筹与申请经费不低于4:1</div></div>
+                    <div class="m-field"><div class="m-label">所需材料</div><div class="m-value">项目申报书、预算申报书、联合申报协议、近两年财务审计报告、研发投入说明（山东省科技云平台）</div></div>
+                    <div class="m-field"><div class="m-label">政策依据</div><div class="m-value policy-ref"><a href="http://kjt.shandong.gov.cn/jsearchfront/visit/link.do?url=http%3A%2F%2Fkjt.shandong.gov.cn%2Fart%2F2025%2F5%2F12%2Fart_13360_10319278.html" target="_blank" rel="noopener">鲁科字〔2025〕83号 / 2025年度申报通知<span class="ext-icon">&#8599;</span></a></div></div>
+                </div>
+            </div>
+            申报规划路线图（按时间窗口）</h3>
+            <div class="roadmap">
+
+            <div class="roadmap-quarter">
+                <div class="roadmap-label">Q3<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">7-9月</span></div>
+                <div class="roadmap-items">
+                    <div class="roadmap-item national"><strong>&#9312;</strong> 国家级智能工厂（卓越级）<br><span style="opacity:0.7">卓越级推荐 | 工信部</span></div>
+                </div>
+            </div>
+            <div class="roadmap-quarter">
+                <div class="roadmap-label">Q4<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">10-12月</span></div>
+                <div class="roadmap-items">
+                    <div class="roadmap-item national"><strong>&#9311;</strong> 超长期特别国债（两新・工业设备更新改造）<br><span style="opacity:0.7">关注后续批次 | 发改委/财政部</span></div>
+                    <div class="roadmap-item national"><strong>&#9313;</strong> 国家级首台（套）重大技术装备<br><span style="opacity:0.7">年度目录 | 工信部</span></div>
+                </div>
+            </div>
+            <div class="roadmap-quarter">
+                <div class="roadmap-label">全年<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">持续</span></div>
+                <div class="roadmap-items">
+                    <div class="roadmap-item province"><strong>&#9314;</strong> 山东省工业领域设备更新奖补<br><span style="opacity:0.7">关注2026批次/下年度 | 省工信厅</span></div>
+                    <div class="roadmap-item province"><strong>&#9315;</strong> 山东省重点研发计划<br><span style="opacity:0.7">关注下年度指南 | 省科技厅</span></div>
+                </div>
+            </div>
+
+            </div>        <div style="margin-top: 30px;">
+            <h3 style="font-size: 17px; color: var(--primary); margin-bottom: 14px;">&#127970; 归口部门项目分布</h3>
+            <div class="unit-summary">
+
+                <div class="unit-card">
+                    <div class="unit-name">国家部委（发改委·财政部·工信部）</div>
+                    <div class="unit-count">3</div>
+                    <div class="unit-desc">超长期国债 / 智能工厂 / 首台套</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-name">山东省工业和信息化厅</div>
+                    <div class="unit-count">1</div>
+                    <div class="unit-desc">工业领域设备更新和技术改造奖补</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-name">山东省科学技术厅</div>
+                    <div class="unit-count">1</div>
+                    <div class="unit-desc">重点研发计划</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="policy">
+        <div class="section-title">
+            <div class="icon">2</div>
+            政策依据汇总
+        </div>
+        <div class="card policy-card">
+            <h3>国家级政策文件</h3>
+            <div style="margin-top: 12px; font-size: 14px; line-height: 2.2;">
+
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>1.</strong> <a href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202501/t20250108_1395564.html" target="_blank" rel="noopener">关于2025年加力扩围实施大规模设备更新和消费品以旧换新政策的通知（发改环资〔2025〕13号）<span class="ext-icon">&#8599;</span></a>
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>2.</strong> <a href="http://yuchengshi.gov.cn/n54813126/n54813170/n54813176/c94599515/content.html" target="_blank" rel="noopener">关于开展2025年度卓越级、领航级智能工厂推荐工作的通知（工信厅联通装函〔2025〕251号）<span class="ext-icon">&#8599;</span></a>
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>3.</strong> <a href="https://www.gov.cn/zhengce/zhengceku/202409/content_6974868.htm" target="_blank" rel="noopener">关于印发《首台（套）重大技术装备推广应用指导目录（2024年版）》的通知（工信部重装函〔2024〕254号）<span class="ext-icon">&#8599;</span></a>
+                </div>
+                
+        <div class="card policy-card">
+            <h3>山东省省级政策文件</h3>
+            <div style="margin-top: 12px; font-size: 14px; line-height: 2.2;">
+
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>1.</strong> <a href="http://www.shandong.gov.cn/lht/#/product/detail?id=1856589810362241024" target="_blank" rel="noopener">山东省工业领域设备更新和技术改造奖补（鲁工信规〔2025〕76号 / 鲁财工〔2024〕10号）<span class="ext-icon">&#8599;</span></a>
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>2.</strong> <a href="http://www.shandong.gov.cn/jpaas-jpolicy-web-server/front/info/detail?iid=f053903858b54dc19a6e0bfe20219cb0" target="_blank" rel="noopener">山东省重点研发计划管理办法（鲁科字〔2025〕83号）<span class="ext-icon">&#8599;</span></a>
+                </div>
+                
+        
+    </div>
+
+    <div class="section" id="tips">
+        <div class="card" style="background: #fffbeb; border-color: #f5deb3;">
+            <h3 style="color: #b8860b;">&#9888;&#65039; 重要提示</h3>
+            <p style="font-size: 13px; color: #8b7355; margin-top: 8px;">
+                本清单所列信息基于公开资料整理，仅供参考。具体申报条件、奖补金额和时间节点以各级主管部门发布的最新官方文件为准。建议企业密切关注山东省工业和信息化厅、山东省科学技术厅等部门的年度申报通知，提前做好材料准备。预计奖补金额为基于公开政策及企业实际投资规模的保守预估值，可能因政策调整而变化。标注为"荣誉类项目"的条目以获得资质认定为主要价值，直接资金奖励较少。同一设备购置原则上不重复享受超长期特别国债与省级设备更新奖补。
+            </p>
+            <div class="lifecycle-bar">
+                <h4>&#128203; 项目申报全生命周期</h4>
+                <div class="lifecycle-steps">
+                    <div class="lifecycle-step"><div class="bar"></div><div class="step-label">项目申报</div><div class="step-pct">20%</div></div>
+                    <div class="lifecycle-step"><div class="bar"></div><div class="step-label">评审批复</div><div class="step-pct">20%</div></div>
+                    <div class="lifecycle-step"><div class="bar"></div><div class="step-label">资金下达</div><div class="step-pct">20%</div></div>
+                    <div class="lifecycle-step" style="flex: 2;"><div class="bar"></div><div class="step-label">结项验收</div><div class="step-pct">40%</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-bar">
+            <div class="contact-bar-title">&#128222; 项目咨询联系人</div>
+            <div class="contact-bar-name">王梦</div>
+            <div class="contact-bar-info">
+                <span class="cb-label">项目申报规划顾问</span> &middot; 政府项目申报规划
+            </div>
+            <div class="contact-bar-sep"></div>
+            <div class="contact-bar-info">
+                <span class="cb-label">电话</span> <a href="tel:18884606786">18884606786</a>
+            </div>
+            <div class="contact-bar-sep"></div>
+            <div class="contact-bar-info">
+                <span class="cb-label">地址</span> 山东省济南市（待确认）
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse-group" id="company">
+        <div class="collapse-group-title">&#9660; 企业详情（点击展开） &#9660;</div>
+
+        <details class="collapse-section">
+            <summary>&#127970; 企业概述</summary>
+            <div class="collapse-body">
+                <div class="card">
+                    <p>山东泰和科技股份有限公司（股票代码：300801.SZ）成立于2006年3月，2019年11月于深交所创业板上市，注册地位于山东省枣庄市市中区十里泉东路1号。公司是全球生产规模最大、品种规格最全的水处理药剂生产企业之一，2025年营业收入28.10亿元，员工总数1017人，其中研发人员206人（占比20.26%）。公司主持和参与制定国家标准24项、行业标准36项，持有有效授权发明专利119件、实用新型专利76件、软件著作权5项。</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item"><div class="label">企业全称</div><div class="value">山东泰和科技股份有限公司</div></div>
+                    <div class="info-item"><div class="label">成立年份</div><div class="value">2006年</div></div>
+                    <div class="info-item"><div class="label">注册资本</div><div class="value">21,843万元</div></div>
+                    <div class="info-item"><div class="label">2025营收</div><div class="value">28.10亿元</div></div>
+                    <div class="info-item"><div class="label">员工总数</div><div class="value">1,017人</div></div>
+                    <div class="info-item"><div class="label">研发人员</div><div class="value">206人（20.26%）</div></div>
+                    <div class="info-item"><div class="label">有效专利</div><div class="value">发明119 + 实用新型76 + 软著5</div></div>
+                    <div class="info-item"><div class="label">标准制定</div><div class="value">国标24 + 行标36</div></div>
+                </div>
+            </div>
+        </details>
+
+        <details class="collapse-section">
+            <summary>&#9881; 主营业务</summary>
+            <div class="collapse-body">
+                <div class="card">
+                    <p>公司主要从事水处理药剂的研发、生产和销售，产品涵盖阻垢缓蚀剂、杀菌灭藻剂、螯合剂、分散剂等八大系列，年产能54.63万吨，产品出口70余个国家和地区；同时布局氯碱产品（占营收约21%）、新能源电池材料（磷酸铁锂正极材料、电解液添加剂VC/FEC、钠电正极材料NFPP）及电子化学品（高纯溶剂G4/G5级、光刻胶树脂）等新业务方向。</p>
+                </div>
+                <div class="biz-grid">
+                    <div class="biz-card"><div class="biz-icon" style="background:#e8f4fd;">&#128301;</div><h4>水处理药剂</h4><p>阻垢缓蚀剂、杀菌灭藻剂、螯合剂、分散剂等八大系列，全球规模领先，出口70+国家和地区</p></div>
+                    <div class="biz-card"><div class="biz-icon" style="background:#e8fde8;">&#9874;</div><h4>氯碱产品</h4><p>氯碱及联副产品，与上游三氯化磷形成一体化产业链</p></div>
+                    <div class="biz-card"><div class="biz-icon" style="background:#fde8f4;">&#9889;</div><h4>新能源电池材料</h4><p>磷酸铁锂正极材料、电解液添加剂VC/FEC、钠电正极材料NFPP</p></div>
+                    <div class="biz-card"><div class="biz-icon" style="background:#f3e8fd;">&#128301;</div><h4>电子化学品</h4><p>高纯溶剂（G4/G5级）、光刻胶树脂等，部分已试生产</p></div>
+                </div>
+            </div>
+        </details>
+
+        <details class="collapse-section">
+            <summary>&#127942; 已获得的资质与荣誉</summary>
+            <div class="collapse-body">
+                <div class="card">
+                    <h3>国家级资质与荣誉</h3>
+                    <div class="badge-group">
+                        <span class="badge badge-national">&#127942; 国家级制造业单项冠军示范企业（2023）</span>
+                        <span class="badge badge-national">&#127942; 国家企业技术中心</span>
+                        <span class="badge badge-national">&#127942; 国家博士后科研工作站</span>
+                        <span class="badge badge-national">&#127942; 国家高新技术企业</span>
+                        <span class="badge badge-national">&#127942; 国家知识产权示范企业</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>省市级资质与荣誉</h3>
+                    <div class="badge-group">
+                        <span class="badge badge-province">&#127941; 山东省绿色工厂</span>
+                        <span class="badge badge-province">&#127941; 山东省先进智能工厂</span>
+                        <span class="badge badge-province">&#127941; 山东省智能制造标杆企业</span>
+                        <span class="badge badge-province">&#127941; 山东省化工产业智能化改造标杆企业</span>
+                        <span class="badge badge-province">&#127941; 山东省"现代优势产业集群+人工智能"试点示范</span>
+                        <span class="badge badge-province">&#127941; 山东省两化融合优秀企业</span>
+                        <span class="badge badge-province">&#127941; 山东省数字经济"晨星工厂"</span>
+                        <span class="badge badge-province">&#127941; 山东省制造业领航培育企业</span>
+                        <span class="badge badge-province">&#127941; 山东省"十强"产业集群领军企业</span>
+                        <span class="badge badge-province">&#127941; 山东省技术创新示范企业</span>
+                        <span class="badge badge-province">&#127941; 山东省清洁生产先进单位</span>
+                        <span class="badge badge-province">&#127941; 2019年山东省首台（套）技术装备</span>
+                        <span class="badge badge-province">&#127941; 山东省工程研究中心</span>
+                        <span class="badge badge-province">&#127941; 山东省工业企业"一企一技术"研发中心</span>
+                        <span class="badge badge-city">&#127941; 子公司泰和智能：山东省专精特新中小企业（2024）</span>
+                        <span class="badge badge-city">&#127941; 子公司泰和智能：山东省科技型中小企业</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>&#128161; 匹配说明</h3>
+                    <p style="font-size:14px;color:var(--text-light);">以上资质已获认定，不重复推荐同类项目。本报告聚焦两条主线：①<b>升级路径</b>（省级→国家级）：智能工厂、首台（套）由已持有的省级资质向国家级冲刺；②<b>设备更新类现金补贴</b>：锚定4.7亿元新能源系列产品项目及电子化学品产线投资。</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="collapse-section">
+            <summary>&#128203; 近三年项目申请情况（2023-2025）</summary>
+            <div class="collapse-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="year">2023</div>
+                        <h4>国家级制造业单项冠军企业</h4>
+                        <p>获评国家级制造业单项冠军示范企业 <span class="status-done">已通过</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2024</div>
+                        <h4>子公司泰和智能资质认定</h4>
+                        <p>获评山东省专精特新中小企业、山东省科技型中小企业 <span class="status-done">已通过</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2025</div>
+                        <h4>电子化学品与新能源产线建设</h4>
+                        <p>高纯溶剂（电子化学品）试生产、7N级四氯化硅中试设备就绪、VC项目一期1万吨装置建成 <span class="status-progress">进行中</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2022-2025</div>
+                        <h4>新能源系列产品项目（4.7亿元）</h4>
+                        <p>投资4.7亿元建设新能源系列产品项目，是设备更新类大额奖补的核心锚点 <span class="status-progress">建设中</span></p>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    山东泰和科技股份有限公司 &middot; 2026年度奖补项目申报清单 &middot; 仅供内部参考使用 &middot; 编制日期：2026-08-18
+</div>
+
+<script>
+    document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+            this.classList.add('active');
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    function filterTable(level) {
+        const tableRows = document.querySelectorAll('#projectTable tbody tr');
+        tableRows.forEach(row => {
+            row.style.display = (level === 'all' || row.dataset.level === level) ? '' : 'none';
+        });
+        const mobileCards = document.querySelectorAll('#mobileCards .m-project-card');
+        mobileCards.forEach(card => {
+            card.style.display = (level === 'all' || card.dataset.level === level) ? '' : 'none';
+        });
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('.section, .collapse-group');
+        const navLinks = document.querySelectorAll('.nav a');
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 140;
+            if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+    });
+
+    document.querySelector('.nav a[href="#company"]').addEventListener('click', function() {
+        setTimeout(() => {
+            document.querySelectorAll('.collapse-section').forEach(d => d.open = true);
+        }, 400);
+    });
+</script>
+
+</body>
+</html>
